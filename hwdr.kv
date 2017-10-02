@@ -1,0 +1,37 @@
+
+ScreenManagement:
+	MainScreen:
+	AnotherScreen:
+	
+<MainScreen>:
+	name: "main"
+	FloatLayout:
+		Painter:
+		    id: painter
+		Button:
+			color: 0,1,0,1
+			font_size: 25
+			size_hint: 1,0.2
+			text: "Back Home"
+			on_release:
+			    root.export_to_png('number.png')
+			    painter.canvas.clear()
+			    button.text = root.generate_number()
+			pos_hint: {"right":1, "top":1}
+		Button:
+		    id: button
+			color: 0,1,0,1
+			font_size: 25
+			size_hint: 0.2,0.8
+			pos_hint: {"left":1, "bottom":1}
+
+		
+<AnotherScreen>:
+	name: "other"
+	Button:
+	    id : button
+		on_release:
+		    app.root.current = "main"
+        text: "unknown"
+		font_size: 50
+
